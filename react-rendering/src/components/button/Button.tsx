@@ -3,9 +3,9 @@ import './button.css';
 
 type ButtonProps = {
   text: string;
-  onChange?: (event: FormEvent<HTMLButtonElement>) => void;
+  onClick?: (event: FormEvent<HTMLButtonElement>) => void;
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  return <button onChange={props.onChange}>{props.text}</button>;
+  return <button onClick={props.onClick}>{props.text}</button>;
 }
