@@ -9,25 +9,31 @@ export const InputButton = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState<string | undefined>();
   const changeName = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log('changeName');
+    console.log('changeName: ', name);
     setName(event.target.value);
   }
   const [age, setAge] = useState<number | undefined>();
   const changeAge = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log('changeAge');
+    console.log('changeAge: ', age);
     setAge(Number(event.target.value) || 0);
   }
 
   const buttonClick = (event: FormEvent<HTMLButtonElement>) => {
     console.log('buttonClick');
+    console.log(`name: ${name} / age: ${age}`);
+    
     if (!name) {
       return;
     }
     dispatch(addList({name: name, age: 100}));
   }
   return (<>
-    <Input type='text' onChange={changeName}/>
-    <Input type='text' onChange={changeAge}/>
+    <label> name: 
+      <Input type='text' onChange={changeName}/>
+    </label>
+    <label> age: 
+      <Input type='number' onChange={changeAge}/>
+    </label>
     <Button text='追加' onClick={buttonClick}/>
   </>)
 }

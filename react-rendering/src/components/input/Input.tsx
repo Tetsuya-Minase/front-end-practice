@@ -1,11 +1,11 @@
 import { ChangeEvent } from "react";
 
 type InputProps = {
-  type: 'text',
+  type: 'text' | 'number',
   placeHolder?: string,
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 };
 
-export const Input: React.FC<InputProps> = ({type, placeHolder}) => {
-  return <input type={type} placeholder={placeHolder}/>
+export const Input: React.FC<InputProps> = ({type, placeHolder, onChange}) => {
+  return <input type={type} placeholder={placeHolder} onChange={onChange}/>
 }
