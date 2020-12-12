@@ -1,4 +1,4 @@
-import { AnyAction, createStore } from "redux";
+import { createStore } from "redux";
 
 type UserData = {
   readonly name: string;
@@ -7,11 +7,9 @@ type UserData = {
 }
 
 type IndexState = {
-  readonly key: string | undefined;
   readonly data: UserData[];
 }
 const initialState: IndexState = {
-  key: undefined,
   data: []
 };
 
@@ -29,7 +27,10 @@ type IndexActions = ReturnType<typeof addList>;
 export function reducer(state: IndexState = initialState, action: IndexActions) {
   switch (action.type) {
     case Actions.ADD:
-      return state;
+      return {
+        ...state,
+        data: [...state.data, action.payload.data]
+      };
     default:
       return state;
   }
