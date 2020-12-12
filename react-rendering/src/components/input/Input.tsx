@@ -1,6 +1,9 @@
+import { ChangeEvent } from "react";
+
 type InputProps = {
   type: 'text',
-  placeHolder?: string
+  placeHolder?: string,
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 };
 
 export const Input: React.FC<InputProps> = ({type, placeHolder}) => {
