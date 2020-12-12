@@ -22,10 +22,10 @@ export const InputButton = () => {
     console.log('buttonClick');
     console.log(`name: ${name} / age: ${age}`);
     
-    if (!name) {
+    if (!name || !age) {
       return;
     }
-    dispatch(addList({name: name, age: 100}));
+    dispatch(addList({name, age}));
   }
   return (<>
     <label> name: 

@@ -6,7 +6,7 @@ type UserData = {
   readonly memo?: string;
 }
 
-type IndexState = {
+export type IndexState = {
   readonly data: UserData[];
 }
 const initialState: IndexState = {
