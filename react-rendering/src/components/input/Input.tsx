@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useMemo } from "react";
 
 type InputProps = {
   type: 'text' | 'number',
@@ -7,6 +7,8 @@ type InputProps = {
 };
 
 export const Input: React.FC<InputProps> = ({type, placeHolder, onChange}) => {
-  console.log(`in Input. type is ${type}`);
-  return <input type={type} placeholder={placeHolder} onChange={onChange}/>
+  return useMemo(() => {
+    console.log(`in Input. type is ${type}`);
+    return <input type={type} placeholder={placeHolder} onChange={onChange}/>
+  }, [type, placeHolder, onChange]);
 }

@@ -1,4 +1,4 @@
-import { FC, FormEvent } from 'react';
+import { FC, FormEvent, useMemo } from 'react';
 import './button.css';
 
 type ButtonProps = {
@@ -7,6 +7,8 @@ type ButtonProps = {
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  console.log(`in Button. text is ${props.text}`);
-  return <button onClick={props.onClick}>{props.text}</button>;
+  return useMemo(() => {
+    console.log(`in Button. text is ${props.text}`);
+    return <button onClick={props.onClick}>{props.text}</button>;
+  }, [props]);
 }
