@@ -7,5 +7,6 @@ type ButtonProps = {
 }
 
 export const Button: FC<ButtonProps> = (props) => {
+  console.log(`in Button. text is ${props.text}`);
   return <button onClick={props.onClick}>{props.text}</button>;
 }

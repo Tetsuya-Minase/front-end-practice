@@ -7,5 +7,6 @@ type InputProps = {
 };
 
 export const Input: React.FC<InputProps> = ({type, placeHolder, onChange}) => {
+  console.log(`in Input. type is ${type}`);
   return <input type={type} placeholder={placeHolder} onChange={onChange}/>
 }
